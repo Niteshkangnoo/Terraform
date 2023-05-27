@@ -40,5 +40,13 @@ resource "azurerm_subnet" "default" {
   address_prefixes     = ["172.16.1.0/24"]
   resource_group_name  = azurerm_resource_group.testrg.name
   virtual_network_name = azurerm_virtual_network.testvnet.name
+
  depends_on = [ azurerm_virtual_network.testvnet ] 
+}
+
+
+resource "azurerm_subnet_network_security_group_association" "defaultsubnetnsgassocation" {
+  subnet_id                 = azurerm_subnet.default.id
+  network_security_group_id = azurerm_network_security_group.testnsg.id
+  depends_on                = [azurerm_network_security_group.testnsg]
 }
