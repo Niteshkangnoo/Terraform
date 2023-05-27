@@ -2,7 +2,7 @@ resource "azurerm_firewall_policy" "tffwpolicy" {
   name                = "tffwpolicy"
   resource_group_name = azurerm_resource_group.appgrp.name
   location            = azurerm_resource_group.appgrp.location
-  depends_on = [ azurerm_resourceex_group.appgrp ]
+  depends_on = [ azurerm_resource_group.appgrp ]
 }
 
 resource "azurerm_firewall_policy_rule_collection_group" "tffwpolrcg" {
