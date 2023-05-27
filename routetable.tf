@@ -8,7 +8,7 @@ resource "azurerm_route_table" "tf-rt" {
     name                   = "Internet"
     address_prefix         = "0.0.0.0/0"
     next_hop_type          = "VirtualAppliance"
-    next_hop_in_ip_address = "10.0.2.4"
+    next_hop_in_ip_address = "10.0.1.4"
   }
 
   route {
