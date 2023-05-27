@@ -26,3 +26,19 @@ resource "azurerm_subnet_network_security_group_association" "tfsubnetnsgasocati
   network_security_group_id = azurerm_network_security_group.tfnsg.id
   depends_on                = [azurerm_network_security_group.tfnsg]
 }
+
+
+resource "azurerm_virtual_network" "testvnet" {
+  name                = "testvnet"
+  location            = azurerm_resource_group.testrg.location
+  resource_group_name = azurerm_resource_group.testrg.name
+  address_space       = ["172.16.0.0/12"]
+  depends_on = [ azurerm_resource_group.testrg ]
+}
+resource "azurerm_subnet" "default" {
+  name                 = "default"
+  address_prefixes     = ["172.16.1.0/24"]
+  resource_group_name  = azurerm_resource_group.testrg.name
+  virtual_network_name = azurerm_virtual_network.testvnet.name
+ depends_on = [ azurerm_virtual_network.testvnet ] 
+}
