@@ -1,2 +1,8 @@
 $env:ARM_ACCESS_KEY="Storage_account_access_key"
 https://github.com/tsrob50/TerraformExamples/tree/main/RemoteBackend
+
+git rm --cached <filename> (you want to be ignored from .gitignore)
+git status
+git add .
+git commit -m "Message"
+git push -u origin <origin name>
