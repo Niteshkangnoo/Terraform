@@ -1,19 +1,19 @@
 variable "environment_name" {
-  type    = string
+  type        = string
   description = "Different Environments"
-  default = "UAT"
+  default     = "UAT"
 }
 
 variable "department" {
-  type    = string
+  type        = string
   description = "Department"
-  default = "Finance"
+  default     = "Finance"
 }
 
 variable "deployment_source" {
-  type    = string
+  type        = string
   description = "Source of deployment"
-  default = "Terraform"
+  default     = "Terraform"
 }
 
 variable "prefix" {

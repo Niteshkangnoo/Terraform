@@ -2,7 +2,7 @@ resource "azurerm_firewall_policy" "tffwpolicy" {
   name                = "tffwpolicy"
   resource_group_name = azurerm_resource_group.appgrp.name
   location            = azurerm_resource_group.appgrp.location
-  depends_on = [ azurerm_resource_group.appgrp ]
+  depends_on          = [azurerm_resource_group.appgrp]
 }
 
 resource "azurerm_firewall_policy_rule_collection_group" "tffwpolrcg" {
@@ -24,7 +24,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "tffwpolrcg" {
       translated_port     = "3389"
     }
   }
-  depends_on = [ azurerm_firewall_policy.tffwpolicy ]
+  depends_on = [azurerm_firewall_policy.tffwpolicy]
 }
 
 
@@ -35,12 +35,12 @@ resource "azurerm_firewall" "tf-fw" {
   resource_group_name = azurerm_resource_group.appgrp.name
   sku_name            = "AZFW_VNet"
   sku_tier            = "Standard"
-  firewall_policy_id = azurerm_firewall_policy.tffwpolicy.id
+  firewall_policy_id  = azurerm_firewall_policy.tffwpolicy.id
   ip_configuration {
     name                 = "configuration"
     subnet_id            = azurerm_subnet.AzureFirewallSubnet.id
     public_ip_address_id = azurerm_public_ip.tf-fw-pip.id
   }
-  
-  depends_on         = [azurerm_subnet.AzureFirewallSubnet]
+
+  depends_on = [azurerm_subnet.AzureFirewallSubnet]
 }
