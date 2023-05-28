@@ -6,13 +6,13 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-  resource_group_name = "appgrp"
-  storage_account_name = "tfstrgaccnt113"
-  container_name = "tfstate"
-  key = "terraform.tfstate"
-  #sas_token = "SAS_token_value"
-}
+#  backend "azurerm" {
+#  resource_group_name = "appgrp"
+#  storage_account_name = "tfstrgaccnt113"
+#  container_name = "tfstate"
+#  key = "terraform.tfstate"
+#  #sas_token = "SAS_token_value"
+#}
 
 }
 

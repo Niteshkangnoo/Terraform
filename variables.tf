@@ -15,3 +15,7 @@ variable "deployment_source" {
   description = "Source of deployment"
   default = "Terraform"
 }
+
+variable "prefix" {
+  default = "tf"
+}
